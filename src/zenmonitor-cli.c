@@ -52,7 +52,7 @@ static SensorSource sensor_sources[] = {
     }
 };
 
-void flush_to_csv()
+void flush_to_csv(int signum)
 {
     FILE *csv;
     csv = fopen(file, "w");
