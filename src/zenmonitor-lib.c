@@ -11,6 +11,7 @@
 #define AMD_STRING "AuthenticAMD"
 #define ZEN_FAMILY 0x17
 #define ZEN3_FAMILY 0x19
+#define ZEN5_FAMILY 0x1A
 
 const guint SENSOR_DATA_STORE_NUM = 4096;
 
@@ -34,7 +35,7 @@ gboolean check_zen() {
     __get_cpuid(1, &eax, &ebx, &ecx, &edx);
 
     ext_family = ((eax >> 8) & 0xF) + ((eax >> 20) & 0xFF);
-    if (ext_family != ZEN_FAMILY && ext_family != ZEN3_FAMILY){
+    if (ext_family != ZEN_FAMILY && ext_family != ZEN3_FAMILY && ext_family != ZEN5_FAMILY){
         return FALSE;
     }
 
